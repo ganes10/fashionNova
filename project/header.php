@@ -1,20 +1,21 @@
 <?php
-if (isset($message)) {
-    foreach ($message as $message) {
-        echo '
-        <div class="message">
-            <span>' . $message . '</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-        </div>
-        ';
-    }
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
 $loggedin = false; // Assume the user is not logged in by default
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+// Include the database connection and other necessary files
+include 'db_connection.php';
+
+if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     $loggedin = true;
-    $user_id = $_SESSION['user_id']; // Assuming your user ID is stored in the session
+    $user_id = $_SESSION['user_id'];
+
+    // Example query using $conn
+    $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+    $cart_rows_number = mysqli_num_rows($select_cart_number);
 }
 
 ?>
@@ -29,7 +30,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                 <a href="https://np.linkedin.com/" class="fab fa-linkedin"></a>
             </div>
-            <p> NEW <a href="login.php">LOGIN</a> | <a href="register.php">REGISTER</a>| <a href="logout.php">LOGOUT</a></p>
+            <!-- <p> NEW <a href="login.php">LOGIN</a> | <a href="register.php">REGISTER</a>| <a href="logout.php">LOGOUT</a></p> -->
         </div>
     </div>
 
@@ -74,21 +75,17 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             </div>
 
             <div class="user-box">
-                <?php if (!$loggedin) { ?>
-                    <p><a href="login.php" class="<?php if ($page === 'login') {
-                        echo 'active';
-                    } ?>"><i class="fa-solid fa-user"></i></a></p>
-                    <p><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></p>
-                <?php } else { ?>
-                    <p><a href="customerDashboard.php" class="<?php if ($page === 'customer') {
-                        echo 'active';
-                    } ?>"><i class="fa-solid fa-user"></i></a></p>
-                    <p><a href="cart.php" class="<?php if ($page === 'cart') {
-                        echo 'active';
-                    } ?>"><i class="fa-solid fa-cart-shopping"></i></a></p>
-                    <p><a class="hide-logout" href="logout.php">LogOut</a></p>
-                <?php } ?>
-            </div>
+            <?php if (!$loggedin) { ?>
+               <!-- Show login and cart icons when not logged in -->
+               <p><a href="login.php" class="<?php echo isset($page) && $page === 'login' ? 'active' : ''; ?>"><i class="fa-solid fa-user"></i></a></p>
+               <p><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></p>
+            <?php } else { ?>
+               <!-- Show user-specific icons when logged in -->
+               <p><a href="<?php echo isset($page) && $page === 'customer' ? 'customer_dashboard.php' : '#'; ?>" class="<?php echo isset($page) && $page === 'customer' ? 'active' : ''; ?>"><i class="fa-solid fa-user"></i></a></p>
+               <p><a href="cart.php" class="<?php echo isset($page) && $page === 'cart' ? 'active' : ''; ?>"><i class="fa-solid fa-cart-shopping"></i></a></p>
+               <p><a class="hide-logout" href="logout.php">LogOut</a></p>
+            <?php } ?>
+         </div>
         </div>
     </div>
 

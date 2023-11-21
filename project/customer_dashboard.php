@@ -14,8 +14,10 @@
 </head>
 
 <body>
-    <?php $page = 'customer'; include('header.php') ?>
-
+    <?php
+$page = 'customer'; // Set the value corresponding to the current page
+include 'header.php';
+?>
     <div class="profile">
         <div class="profile-category">
             <div class="profile-sidemenu">

@@ -87,17 +87,12 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `products` (`product_id`, `name`, 'category',`price`, `image`, `description`) VALUES
-(6, 'Summer Dress', 'Hoodiemc',350, 'summer_dress.jpg', 'Light and comfortable dress for summer'),
-(7, 'Formal Shirt', 45, 'formal_shirt.jpg', 'Classic formal shirt for men'),
-(8, 'Sneakers', 80, 'sneakers.jpg', 'Stylish sneakers for a casual look'),
-(9, 'Winter Coat', 1200, 'winter_coat.jpg', 'Warm and cozy winter coat for cold days'),
-(10, 'Casual Jeans', 55, 'casual_jeans.jpg', 'Comfortable and trendy jeans for everyday wear'),
-(11, 'Running Shoes', 90, 'running_shoes.jpg', 'High-performance running shoes for active lifestyles'),
-(12, 'Printed T-Shirt', 25, 'printed_tshirt.jpg', 'Colorful printed t-shirt for a casual look'),
-(13, 'Leather Jacket', 200, 'leather_jacket.jpg', 'Classic leather jacket for a stylish appearance'),
-(14, 'Skirt', 40, 'skirt.jpg', 'Elegant skirt for a fashionable and feminine look'),
-(15, 'Hiking Boots', 120, 'hiking_boots.jpg', 'Durable hiking boots for outdoor adventures');
+INSERT INTO `products` (`product_id`, `name`, `category`,`price`, `image`, `description`) VALUES
+(6, 'White Hoodie', 'Hoodie',3500, 'hoodie.jpg', 'So much beautiful'),
+(7, 'Hoodie White','Hoodie', 45, 'hoodie2.jpg', 'Classic formal shirt for men'),
+(8, 'waau Hoodie', 'Hoodie',80, 'hoodie3.jpg', 'Stylish sneakers for a casual look'),
+(9, 'Expert Hoodie', 'Hoodie',1200, 'hoodie4.jpg', 'Warm and cozy winter coat for cold days'),
+(10, 'Brown Hoodie','Hoodie', 55, 'hoodie5.jpg', 'Comfortable and trendy jeans for everyday wear');
 --
 -- Table structure for table `users`
 --
@@ -110,6 +105,9 @@ CREATE TABLE `users` (
   `user_type` varchar(20) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `users` (`id`, `name`, `email`,`password`, `user_type`) VALUES
+(6, 'Ganesh Basnet', 'ganeshbasnet881@icloud.com', 'b59c67bf196a4758191e42f76670ceba', 'admin'),
+(5, 'Ganesh Basnet', 'ganeshbasnet881@icloud.com', '81dc9bdb52d04dc20036dbd8313ed055', 'user');
 --
 -- Indexes for dumped tables
 --

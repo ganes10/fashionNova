@@ -17,7 +17,7 @@ if (isset($_POST['order_btn'])) {
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $method = isset($_POST['method']) ? mysqli_real_escape_string($conn, $_POST['method']) : '';
    $street = isset($_POST['street']) ? mysqli_real_escape_string($conn, $_POST['street']) : '';
-   $address = mysqli_real_escape_string($conn, 'flat no. ' . $street . ', ' . $_POST['city'] . ', ' . $_POST['country']. ' - ' . $_POST['pin_code']);
+   $address = mysqli_real_escape_string($conn, 'flat no. ' . $street . ', ' . $_POST['city'] . ', ' . $_POST['country']. ' - ' . $_POST['street']);
    $placed_on = date('d-M-Y');
 
    $cart_total = 0;
@@ -101,30 +101,22 @@ if (isset($_POST['order_btn'])) {
    <section class="checkout">
 
       <form action="" method="post">
-         <h3>place your order</h3>
+         <h3>Place Your Order</h3>
          <div class="flex">
             <div class="inputBox">
-               <span>your name :</span>
+               <span>Your name :</span>
                <input type="text" name="name" required placeholder="enter your name">
             </div>
             <div class="inputBox">
-               <span>your number :</span>
+               <span>Your number :</span>
                <input type="number" name="number" required placeholder="enter your number">
             </div>
             <div class="inputBox">
-               <span>your email :</span>
+               <span>Your email :</span>
                <input type="email" name="email" required placeholder="enter your email">
             </div>
-            <!-- <div class="inputBox">
-               <span>payment method :</span>
-               <select name="method">
-                  <option value="cash on delivery">cash on delivery</option>
-                  <option value="credit card">credit card</option>
-                  <option value="paypal">paypal</option>
-               </select>
-            </div> -->
             <div class="inputBox">
-               <span>address line 01 :</span>
+               <span>Address line 01 :</span>
                <input type="text" min="0" name="flat" required placeholder="e.g. street name.">
             </div>
             <div class="inputBox">
