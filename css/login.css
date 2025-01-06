@@ -1,0 +1,102 @@
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: #f2f4f8;
+  /* Changed background color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Improved font stack */
+}
+
+.container {
+  margin: 6rem auto;
+  max-width: 430px;
+  width: 90%;
+  /* Slightly reduced width for better readability */
+  background: #fff;
+  border-radius: 10px;
+  /* Rounded corners for a modern look */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* Ensure box-shadow is visible */
+}
+
+.container .form {
+  padding: 2rem;
+}
+
+.form h3 {
+  font-size: 2.5rem;
+  /* Increased heading size */
+  font-weight: 600;
+  /* Bold heading */
+  text-align: center;
+  color: #333;
+  /* Darkened text color */
+  margin-bottom: 2rem;
+}
+
+.form input {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 1rem;
+  /* Slightly reduced font size */
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  /* Lightened border color */
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  /* Smooth border transition */
+}
+
+.form input:focus {
+  border-color: #7065d4;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form a {
+  font-size: 1rem;
+  color: red;
+  text-decoration: none;
+}
+
+.form a:hover {
+  color: #3f3a3a;
+
+  text-decoration: underline;
+}
+
+.form input.button {
+  color: #fff;
+  background: #7065d4;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+
+
+.signup {
+  font-size: 1rem;
+  text-align: center;
+  color: #555;
+}
+
+.signup label {
+  color: red;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup label:hover {
+  color: #7065d4;
+
+  text-decoration: underline;
+}
